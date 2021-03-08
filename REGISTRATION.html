@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="REGISTRATION.css">
+</head>
+
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="mt-3 border col-md-4">
+            <h2>REGISTRATION FORM</h2><br>
+            <form>
+                <label><b>firstname</b></label>
+                <input type="text" id="firstname"><br><br>
+                <span id="error_firstname" style="display:none;color:red">enterfirstname</span>
+                <label><b>lastname</b></label>
+                <input type="text" id="lastname"><br><br>
+                <span id="error_lastname" style="display:none;color:red">enterlastname</span>
+                <label><b>email</b></label>
+                <input type="text" id="email"><br><br>
+                <span id="error_email" style="display:none;color:red">enteremailid</span>
+                <label><b>PASSWORD</b></label>
+                <input type="password" id="password"><br><br>
+                <span id="error_password" style="display:none;color:red">enterpassword</span>
+                <button type="button" onclick="ValidateUser()">REGISTER</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function ValidateUser() {
+            var firstname, lastname, email, password;
+            firstname = document.getElementById('firstname').value;
+            lastname = document.getElementById('lastname').value;
+            email = document.getElementById('email').value;
+            password = document.getElementById('password').value;
+            if (firstname == "") {
+                document.getElementById('firstname').style.border = "2px solid red";
+                document.getElementById('error_firstname').style.display = "block";
+            }
+
+            else if (lastname == "") {
+                document.getElementById('lastname').style.border = "2px solid red";
+                document.getElementById('error_lastname').style.display = "block";
+            }
+            else if (email == "") {
+                document.getElementById('email').style.border = "2px solid red";
+                document.getElementById('error_email').style.display = "block";
+            }
+            else if (password == "") {
+                document.getElementById('password').style.border = "2px solid red";
+                document.getElementById('error_password').style.display = "block";
+            }
+            else {
+                document.getElementById('firstname').style.border = "2px solid green";
+                document.getElementById('error_firstname').style.display = "none";
+                document.getElementById('lastname').style.border = "2px solid green";
+                document.getElementById('error_lastname').style.display = "none";
+                document.getElementById('email').style.border = "2px solid green";
+                document.getElementById('error_email').style.display = "none";
+                document.getElementById('password').style.border = "2px solid green";
+                document.getElementById('error_password').style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

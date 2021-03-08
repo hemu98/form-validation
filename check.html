@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout Form</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+        <form action="#" method="POST" name="checkoutform">
+            <div class="d-flex p-2">
+                <div>
+                    <h3>Billing Address</h3>
+                    <div class="form-group">
+                        <label for="fullname" >Full Name</label>
+                        <input type="text" name="fullname" class="form-control" id="fname">
+                       
+                        <span id="user" style="color: red;display: none;">Enter your name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" >Email</label>
+                        <input type="text" name="email" class="form-control" id="email" >
+                        <span id="mail" style="color: red;display: none;">Enter your mail</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address"> Address</label> 
+                        <input type="text" name="address" class="form-control" id="address" >
+                         <span id="lastname">Enter Your Adress</span>
+                    </div>
+                    <div class="form-group">   
+                        <label for="city" >City</label>      
+                        <input type="text" name="city" class="form-control" id="city">
+                        <span id="city1" style="color: red;display: none;">Enter your city</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" class="form-control" id="state">
+                            <span id="state1" style="color: red;display: none;">Enter your state</span>
+                        </div>
+                        <div class="ml-2 form-group">
+                            <label for="zip">Zip</label>
+                            <input type="text" name="zip" class="form-control" id="zip">
+                          <span id="zip1" style="color: red;display: none;">Enter your zipcode</span>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="checkbox">Shipping address same as billing
+                    </div>
+                </div>
+                <div class="ml-3">
+                    <h3>Payment</h3>
+                    <div class="form-group">
+                        <label for="cardname" >CARD NAME</label>
+                        <input type="text" name="cardname" class="form-control" id="cardname">
+                        <span id="namec" style="color: red;display: none;">Enter your name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardnumber" >Card Number</label>
+                        <input type="text" name="cardnumber" class="form-control" id="cardnumber">
+                        <span id="number" style="color: red;display: none;">Enter your number</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="expmonth">Exp Month</label>
+                        <input type="text" name="expmonth" class="form-control" id="expmonth">
+                        <span id="month" style="color: red;display: none;">Enter your Month</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group">
+                            <label for="expyear">Exp Year</label>
+                            <input type="text" name="expyear" class="form-control" id="expyear"> 
+                            <span id="year" style="color: red;display: none;">Enter your year</span>
+                        </div>
+                        <div class="ml-2 form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" name="cvv" class="form-control" id="cvv" >
+                            <span id="pin" style="color: red;display: none;">Enter your cvv</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="p-3">
+            <button class="btn btn-success col-md-6" type="button" onclick="validateCheck()">Continue to checkout</button>
+
+<script>
+
+ function validateCheck() {
+    var fullname = document.getElementById("fname").value;
+    var email = document.getElementById("email").value;
+    var address = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
+    var state = document.getElementById("state").value;
+    var zip = document.getElementById("zip").value;
+    var name = document.getElementById("cardname").value;
+    var number = document.getElementById("cardnumber").value;
+    var month = document.getElementById("expmonth").value;
+    var year = document.getElementById("expyear").value;
+    var cvv = document.getElementById("cvv").value;
+
+    if(fullname == ""){
+        document.getElementById("user").style.display="block";
+        document.getElementById("fname").style.border="1px solid red";
+    } else if( email == ""){
+        document.getElementById("user").style.display="none";
+        document.getElementById("fname").style.border="1px solid green";
+        document.getElementById("mail").style.display="block";
+        document.getElementById("email").style.border="1px solid red";
+    }else if( address == ""){
+        document.getElementById("mail").style.display="none";
+        document.getElementById("email").style.border="1px solid green";
+        document.getElementById("lastname").style.display="block";
+        document.getElementById("address").style.border="1px solid red";
+    }else if( city == ""){
+        document.getElementById("lastname").style.display="none";
+        document.getElementById("address").style.border="1px solid green";
+        document.getElementById("city1").style.display="block";
+        document.getElementById("city").style.border="1px solid red";
+    }else if( state == ""){
+        document.getElementById("city1").style.display="none";
+        document.getElementById("city").style.border="1px solid green";
+        document.getElementById("state1").style.display="block";
+        document.getElementById("state").style.border="1px solid red";
+    }else if( zip == ""){
+        document.getElementById("state1").style.display="none";
+        document.getElementById("state").style.border="1px solid green";
+        document.getElementById("zip1").style.display="block";
+        document.getElementById("zip").style.border="1px solid red";
+    }else if( name == ""){
+        document.getElementById("zip1").style.display="none";
+        document.getElementById("zip").style.border="1px solid green";
+        document.getElementById("namec").style.display="block";
+        document.getElementById("cardname").style.border="1px solid red";
+    }else if( number == ""){
+        document.getElementById("namec").style.display="none";
+        document.getElementById("cardname").style.border="1px solid green";
+        document.getElementById("number").style.display="block";
+        document.getElementById("cardnumber").style.border="1px solid red";
+    }else if( month == ""){
+        document.getElementById("number").style.display="none";
+        document.getElementById("cardnumber").style.border="1px solid green";
+        document.getElementById("month").style.display="block";
+        document.getElementById("expmonth").style.border="1px solid red";
+    }else if( year == ""){
+        document.getElementById("month").style.display="none";
+        document.getElementById("expmonth").style.border="1px solid green";
+        document.getElementById("year").style.display="block";
+        document.getElementById("expyear").style.border="1px solid red";
+    }else if( cvv == ""){
+        document.getElementById("year").style.display="none";
+        document.getElementById("expyear").style.border="1px solid green";
+        document.getElementById("pin").style.display="block";
+        document.getElementById("cvv").style.border="1px solid red";
+    }else{
+        document.getElementById("number").style.display="none";
+        document.getElementById("cardnumber").style.border="1px solid green";
+        document.getElementById("namec").style.display="none";
+        document.getElementById("cardname").style.border="1px solid green";
+        document.getElementById("zip1").style.display="none";
+        document.getElementById("zip").style.border="1px solid green";
+        document.getElementById("state1").style.display="none";
+        document.getElementById("state").style.border="1px solid green";
+        document.getElementById("city1").style.display="none";
+        document.getElementById("city").style.border="1px solid green";
+        document.getElementById("lastname").style.display="none";
+        document.getElementById("address").style.border="1px solid green";
+        document.getElementById("mail").style.display="none";
+        document.getElementById("email").style.border="1px solid green";
+        document.getElementById("user").style.display="none";
+        document.getElementById("fname").style.border="1px solid green";
+        document.getElementById("year").style.display="none";
+        document.getElementById("expyear").style.border="1px solid green";
+        document.getElementById("pin").style.display="none";
+        document.getElementById("cvv").style.border="1px solid green";
+    }
+
+}
+</script>
+</body>
+
+</html>
